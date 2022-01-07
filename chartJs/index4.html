@@ -1,0 +1,86 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>Scatter</title>
+  </head>
+  <body>
+    <canvas id="pie" style="width: 100%; max-width: 700px"></canvas>
+
+    <br />
+
+    <canvas id="doughnut" style="width: 100%; max-width: 700px"></canvas>
+
+    <script>
+      let xValues = [
+        "Italy",
+        "USA",
+        "SPAIN",
+        "GERMANY",
+        "PERU",
+        "VENEZUELA",
+        "ARGENTINA",
+      ];
+
+      let colors = [
+        "blue",
+        "yellow",
+        "cyan",
+        "purple",
+        "pink",
+        "orange",
+        "green",
+      ];
+
+      let yValues = [];
+
+      function getRandomArbitrary(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      for (let index = 0; index < xValues.length; index++) {
+        yValues.push(getRandomArbitrary(25, 456));
+      }
+
+      new Chart("pie", {
+        type: "pie",
+        data: {
+          labels: xValues,
+          datasets: [
+            {
+              backgroundColor: colors,
+              data: yValues,
+            },
+          ],
+        },
+        options: {
+          title: {
+            display: true,
+            text: "Hello silabuz",
+          },
+        },
+      });
+
+      new Chart("doughnut", {
+        type: "doughnut",
+        data: {
+          labels: xValues,
+          datasets: [
+            {
+              backgroundColor: colors,
+              data: yValues,
+            },
+          ],
+        },
+        options: {
+          title: {
+            display: true,
+            text: "World Wide Wine Production 2018",
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
